@@ -57,6 +57,8 @@ def main():
     here = os.path.dirname(os.path.abspath(__file__))
     src = os.path.join(here, "image.jpg")
     dst = os.path.join(out_dir, "entry.png")
+    if not os.path.isfile(src):
+        fail("image.jpg is missing from the entry")
     with open(src, "rb") as f:
         data = f.read()
     if len(data) > MAX_BYTES:
